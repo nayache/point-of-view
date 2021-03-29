@@ -5,24 +5,23 @@
 # include <stdlib.h>
 # include <string.h>
 
-enum SIDE {
+typedef enum	SIDE {
 	UP = 0,
 	DOWN,
 	LEFT,
 	RIGHT
-};
+}				SIDE;
 
 typedef struct pov t_pov;
 
 struct pov {
-	enum SIDE    side;
-	int          value[N];
+	SIDE		side;
+	int         value[N];
 };
 
-int		valid_input(const char *str);
-t_pov	*build_pov(const char *str);
-char 	**build_map(void);
-int		compute(t_pov *conds, char **map);
-void	print_map(char **map);
+int		valid_input(char *str);
+void	build_pov(t_pov pov[N], char *str);
+void	init_map(char map[N][N]);
+void	print_map(char map[N][N], t_pov pov[N]);
 
 #endif
